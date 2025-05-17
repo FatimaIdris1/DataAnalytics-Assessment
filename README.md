@@ -6,7 +6,7 @@ With each script reflecting a real-world use case where business decisions can b
 
 ---
 
-## ✅ Assessment 1: High-Value Customers with Multiple Products
+## Assessment 1: High-Value Customers with Multiple Products
 
 **Scenario:** The business wants to identify customers who have both a savings and an investment plan (cross-selling opportunity).
 
@@ -20,7 +20,7 @@ With each script reflecting a real-world use case where business decisions can b
 
 ---
 
-## ✅ Assessment 2: Customer Transaction Frequency Categorization
+## Assessment 2: Customer Transaction Frequency Categorization
 
 **Scenario:** The finance team wants to analyze how often customers transact to segment them (e.g., frequent vs. occasional users).
 
@@ -34,7 +34,7 @@ With each script reflecting a real-world use case where business decisions can b
 
 ---
 
-## ✅ Assessment 3: Inactive Accounts Identification
+## Assessment 3: Inactive Accounts Identification
 
 **Scenario:** The ops team wants to flag accounts with no inflow transactions for over one year.
 
@@ -48,7 +48,7 @@ With each script reflecting a real-world use case where business decisions can b
 
 ---
 
-## ✅ Assessment 4: Customer Lifetime Value (CLV) Estimation
+## Assessment 4: Customer Lifetime Value (CLV) Estimation
 
 **Scenario:** Marketing wants to estimate CLV based on account tenure and transaction volume (simplified model).
 
