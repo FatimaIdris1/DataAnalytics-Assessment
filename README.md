@@ -36,7 +36,7 @@ With each script reflecting a real-world use case where business decisions can b
 
 ## Assessment 3: Inactive Accounts Identification
 
-**Scenario:** The ops team wants to flag accounts with no inflow transactions for over one year.
+**Scenario:** The ops team wants to flag accounts with no inflow transactions for more than one year.
 
 ### My Approach:
 - Pulled the latest transaction dates from savings and last charge dates from investment plans.
