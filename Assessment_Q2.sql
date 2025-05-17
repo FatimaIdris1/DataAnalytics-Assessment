@@ -57,7 +57,6 @@ categorized_users AS (
             ELSE 'Low Frequency'
         END AS frequency_category
     FROM users_customuser uc
-    JOIN user_txn_summary sa ON uc.id = sa.owner_id
 )
 
 -- ====================================================================================

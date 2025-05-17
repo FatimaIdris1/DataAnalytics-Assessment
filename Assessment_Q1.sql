@@ -6,9 +6,9 @@ Created Date     : 2025-05-17
 Description      : 
     This query summarizes each user's financial engagement on the platform by 
     combining savings and investment plan data. It calculates:
-      - Number of unique savings accounts
-      - Total confirmed deposits
-      - Number of investment plans
+      - Number of unique savings accounts with non-trivial balances
+      - Total confirmed deposits from those accounts
+      - Number of investment plans where is_a_fund = 1
     The result is ordered by total deposit in descending order.
 ===============================================================================
 */
@@ -21,22 +21,22 @@ USE adashi_staging;
 WITH savings_agg AS (
     SELECT 
         owner_id, 
-        COUNT(DISTINCT savings_id) AS savings_count,
+        COUNT(new_balance) AS savings_count,
         SUM(confirmed_amount) AS total_deposit
     FROM savings_savingsaccount
-    WHERE savings_id > 0
+    WHERE new_balance > 0
     GROUP BY owner_id
 ),
 
 -- ====================================================================================
--- Step 2: Aggregate investment data - count of unique investment plans
+-- Step 2: Aggregate investment data - count of unique investment plans that are funds
 -- ====================================================================================
 plans_agg AS (
     SELECT 
-        owner_id, 
-        COUNT(DISTINCT id) AS investment_count
+        owner_id,
+        COUNT(is_a_fund) AS investment_count
     FROM plans_plan
-    WHERE id > 0
+    WHERE is_a_fund = 1
     GROUP BY owner_id
 )
 

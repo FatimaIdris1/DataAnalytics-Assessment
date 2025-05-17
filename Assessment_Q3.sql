@@ -23,8 +23,8 @@ SELECT
     MAX(sa.transaction_date) AS last_transaction_date, -- Latest recorded transaction date
     DATEDIFF(CURDATE(), MAX(sa.transaction_date)) AS inactivity_days  -- Days since last transaction
 FROM savings_savingsaccount sa
-WHERE sa.transaction_date <= CURDATE() - INTERVAL 365 DAY
 GROUP BY sa.savings_id, sa.owner_id
+HAVING inactivity_days <= 365
 
 UNION
 
@@ -38,8 +38,8 @@ SELECT
     MAX(pl.last_charge_date) AS last_transaction_date, -- Latest recorded charge date
     DATEDIFF(CURDATE(), MAX(pl.last_charge_date)) AS inactivity_days  -- Days since last charge
 FROM plans_plan pl
-WHERE pl.last_charge_date <= CURDATE() - INTERVAL 365 DAY
 GROUP BY pl.id, pl.owner_id
+HAVING inactivity_days <= 365
 
 -- Sort the combined results by owner ID in descending order for readability
 ORDER BY owner_id DESC;
