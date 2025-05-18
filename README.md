@@ -61,6 +61,35 @@ With each script reflecting a real-world use case where business decisions can b
 - Ordered results by estimated CLV to easily spot the most valuable customers.
 
 ---
+## Challenges & Solutions
+
+### Assessment 1: User Portfolio Overview
+- **Challenge:** Identifying which savings accounts were truly *active* posed a challenge, especially since some users had accounts with zero balances or dormant activity.
+- **Solution:** I used the `new_balance` column to filter only accounts with balances greater than zero, which served as a proxy for activity. Additionally, I used `COALESCE` to replace nulls with zeros, ensuring the calculations remained accurate and comprehensive.
+
+---
+
+### Assessment 2: Customer Transaction Frequency Categorization
+- **Challenge:** A key difficulty was determining how to compute the *average number of transactions per month* for each user, since users were active in different months.
+- **Solution:** I extracted month-wise transaction data using `DATE_FORMAT(transaction_date, '%Y-%m')` and grouped by both user and month. This enabled me to count the number of months each user was active and calculate a reliable average before categorizing them by frequency.
+
+---
+
+### Assessment 3: Inactive Accounts Identification
+- **Challenge:** None encountered during development.
+- **Solution:** The requirements were clearly defined and the relevant fields were present in the dataset, making the implementation straightforward.
+
+---
+
+### Assessment 4: Customer Lifetime Value (CLV) Estimation
+- **Challenge:** CLV computation required handling users with little or no tenure, which could lead to division by zero or skewed results.
+- **Solution:** I used `NULLIF` in the denominator when calculating monthly activity to avoid dividing by zero. This safeguard ensured the CLV estimate remained mathematically sound and reflective of real user engagement.
+
+---
+### Conclusion
+
+Completing these assessments was a great learning experience for me. Each task challenged me to think critically and apply SQL in more meaningful ways—from identifying user activity to estimating lifetime value. I grew more confident with every step and truly enjoyed turning data into insights. I’m grateful for the opportunity and excited to keep growing on this journey.
+
 
  **Author:** Fatima Idris  
  **Email:** fatimaidris388@gmail.com
